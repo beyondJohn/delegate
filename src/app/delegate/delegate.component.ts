@@ -32,5 +32,10 @@ export class DelegateComponent implements OnInit {
   mout(ev){
     document.getElementById(ev).style.fill = 'lime';
   }
+// If final connection comes from above then adding all points to (left) of border
+// If final connection comes from below than add all points to right of border
 
+// Have to track each point for left and right turns to determine direction of calculation 
+  
+  //https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
 }
