@@ -4,11 +4,18 @@
   <meta charset="utf-8">
   <title>Delegates</title>
   <base href="/">
-
+<script>
+  function mmove(){
+    var e = window.event;
+    var posX = e.clientX;
+    var posY = e.clientY;
+    console.log(posX + " : " + posY);
+  }
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
+<body onmousemove="mmove()">
   <app-root></app-root>
 </body>
 </html>

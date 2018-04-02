@@ -1,0 +1,371 @@
+{
+    "imageurl": "https://d3800bkra8s324.cloudfront.net/paxe18/PAXEast2018_Map.jpg",
+    "fn": ["() => { alert('hi there');}"],
+    "coords":
+        [
+            {
+                "id": "The Gardens Between",
+                "location": 36,
+                "marker": { "toppct": ".16", "leftpct": ".909" },
+                "taparea": [17, 25, 90, 94],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "At Sundown",
+                "location": 2,
+                "marker": { "toppct": ".26", "leftpct": ".909" },
+                "taparea": [27, 35, 90, 94],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Banner Saga 3",
+                "location": 3,
+                "marker": { "toppct": ".365", "leftpct": ".909" },
+                "taparea": [37, 46, 90, 94],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Flipping Death",
+                "location": 12,
+                "marker": { "toppct": ".46", "leftpct": ".909" },
+                "taparea": [47, 56, 90, 94],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "The Elder Scrolls Online: Summerset #1",
+                "location": 32,
+                "marker": { "toppct": ".16", "leftpct": ".952" },
+                "taparea": [16, 25, 94, 98],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker",
+                "group": "1"
+            },
+            {
+                "id": "The Elder Scrolls Online: Summerset #2",
+                "location": 33,
+                "marker": { "toppct": ".26", "leftpct": ".952" },
+                "taparea": [27, 36, 94, 98],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker",
+                "group": "1"
+            },
+            {
+                "id": "The Elder Scrolls Online: Summerset #3",
+                "location": 34,
+                "marker": { "toppct": ".365", "leftpct": ".952" },
+                "taparea": [37, 46, 94, 98],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker",
+                "group": "1"
+            },
+            {
+                "id": "The Elder Scrolls Online: Summerset #4",
+                "location": 35,
+                "marker": { "toppct": ".46", "leftpct": ".952" },
+                "taparea": [47, 56, 94, 98],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker",
+                "group": "1"
+            },
+            {
+                "id": "Knights & Bikes",
+                "location": 17,
+                "marker": { "toppct": ".16", "leftpct": ".794" },
+                "taparea": [16, 25, 78, 82],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Star Child",
+                "location": 28,
+                "marker": { "toppct": ".26", "leftpct": ".794" },
+                "taparea": [27, 35, 78, 82],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Mother Gunship",
+                "location": 19,
+                "marker": { "toppct": ".365", "leftpct": ".794" },
+                "taparea": [37, 45, 78, 82],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Heaven's Vault",
+                "location": 14,
+                "marker": { "toppct": ".46", "leftpct": ".794" },
+                "taparea": [47, 56, 78, 82],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Extinction",
+                "location": 10,
+                "marker": { "toppct": ".16", "leftpct": ".835" },
+                "taparea": [16, 26, 83, 87],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Omensight",
+                "location": 23,
+                "marker": { "toppct": ".26", "leftpct": ".835" },
+                "taparea": [27, 36, 83, 87],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "No Heros Here",
+                "location": 21,
+                "marker": { "toppct": ".365", "leftpct": ".835" },
+                "taparea": [37, 46, 83, 87],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Super Meatboy Forever",
+                "location": 30,
+                "marker": { "toppct": ".46", "leftpct": ".835" },
+                "taparea": [47, 56, 83, 87],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Horizon Chase Turbo",
+                "location": 15,
+                "marker": { "toppct": ".16", "leftpct": ".679" },
+                "taparea": [16, 24, 67, 70],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Fighting Ex Layer",
+                "location": 11,
+                "marker": { "toppct": ".26", "leftpct": ".679" },
+                "taparea": [28, 35, 67, 70],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Adventure Pals",
+                "location": 1,
+                "marker": { "toppct": ".365", "leftpct": ".679" },
+                "taparea": [38, 45, 67, 70],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Ni No Kuni II",
+                "location": 20,
+                "marker": { "toppct": ".46", "leftpct": ".679" },
+                "taparea": [48, 56, 67, 70],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Chasm",
+                "location": 6,
+                "marker": { "toppct": ".16", "leftpct": ".719" },
+                "taparea": [17, 25, 71, 74],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Swords of Ditto",
+                "location": 31,
+                "marker": { "toppct": ".26", "leftpct": ".719" },
+                "taparea": [27, 36, 71, 74],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "EITR",
+                "location": 9,
+                "marker": { "toppct": ".365", "leftpct": ".719" },
+                "taparea": [37, 46, 71, 74],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Minit",
+                "location": 18,
+                "marker": { "toppct": ".46", "leftpct": ".719" },
+                "taparea": [47, 56, 71, 74],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Yakuza 6 #1",
+                "location": 39,
+                "marker": { "toppct": ".16", "leftpct": ".565" },
+                "taparea": [17, 25, 55, 59],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Yakuza 6 #2",
+                "location": 40,
+                "marker": { "toppct": ".26", "leftpct": ".565" },
+                "taparea": [27, 35, 55, 59],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Soul Caliber VI #1",
+                "location": 26,
+                "marker": { "toppct": ".365", "leftpct": ".565" },
+                "taparea": [37, 45, 55, 59],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Soul Caliber VI #2",
+                "location": 27,
+                "marker": { "toppct": ".46", "leftpct": ".565" },
+                "taparea": [48, 55, 55, 59],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Battle Chef Brigade",
+                "location": 4,
+                "marker": { "toppct": ".16", "leftpct": ".605" },
+                "taparea": [16, 25, 59, 63],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Donut County",
+                "location": 8,
+                "marker": { "toppct": ".26", "leftpct": ".605" },
+                "taparea": [27, 35, 59, 63],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Gogora",
+                "location": 13,
+                "marker": { "toppct": ".365", "leftpct": ".605" },
+                "taparea": [38, 45, 59, 63],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Omen of Sorrow",
+                "location": 22,
+                "marker": { "toppct": ".46", "leftpct": ".605" },
+                "taparea": [48, 56, 59, 63],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Rick & Morty",
+                "location": 24,
+                "marker": { "toppct": ".68", "leftpct": ".582" },
+                "taparea": [68, 78, 56, 62],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Bow to Blood",
+                "location": 5,
+                "marker": { "toppct": ".68", "leftpct": ".669" },
+                "taparea": [68, 78, 64, 71],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Killing Floor",
+                "location": 16,
+                "marker": { "toppct": ".68", "leftpct": ".757" },
+                "taparea": [68, 77, 73, 80],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "The Persistance",
+                "location": 38,
+                "marker": { "toppct": ".68", "leftpct": ".844" },
+                "taparea": [68, 78, 82, 89],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Star Child VR",
+                "location": 29,
+                "marker": { "toppct": ".68", "leftpct": ".93" },
+                "taparea": [68, 78, 90, 98],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "The Last Guardian",
+                "location": 37,
+                "marker": { "toppct": ".81", "leftpct": ".582" },
+                "taparea": [82, 91, 55, 63],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Shadow of Colossus",
+                "location": 25,
+                "marker": { "toppct": ".80", "leftpct": ".384" },
+                "taparea": [79, 92, 32, 46],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker"
+            },
+            {
+                "id": "Detroit",
+                "location": 7,
+                "marker": { "toppct": ".20", "leftpct": ".21" },
+                "taparea": [13, 74, 2, 47],
+                "markertype": "i",
+                "style": {},
+                "class": "fa fa-map-marker fa-3x"
+            }
+        ]
+}
