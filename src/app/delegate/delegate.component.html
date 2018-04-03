@@ -1,9 +1,13 @@
+<div id='divbody' (click)="bodyclick($event,'divbody')">
+  <svg height="210" width="390">
+    <!-- <polygon id='poly1' points="210,100 250,190 160,210, 300,180, 400,210" style="fill:lime;stroke:purple;stroke-width:1;" (mouseenter)="mover('poly1')" (mouseleave)="mout('poly1')" onclick="alert('clicked')" /> -->
+    <!-- <polygon id='poly1' points="125,125 125,45 45,125" style="fill:lime;stroke:purple;stroke-width:1;" (mouseenter)="mover('poly1')" -->
+        <polygon id='poly1' points="125,125 125,45 95,45 95,82 70,80 67,49 34,47 34,125" style="fill:lime;stroke:purple;stroke-width:1;" (mouseenter)="mover('poly1')"
+      (mouseleave)="mout('poly1')"  />
+  </svg>
 
-<!-- <svg height="210" width="390">
-  <polygon id='poly1' points="210,100 250,190 160,210, 400,210" style="fill:lime;stroke:purple;stroke-width:1;" (mouseenter)="mover('poly1')" (mouseleave)="mout('poly1')" onclick="alert('clicked')" />
-</svg> -->
+  <div *ngFor="let canv of canvasarray">
 
-<div *ngFor="let canv of canvasarray"  >
-  
-  <canvas id="{{canv.id}}" width="{{canv.width}}" height="{{canv.height}}" ></canvas>
+    <canvas id="{{canv.id}}" width="{{canv.width}}" height="{{canv.height}}" (click)="clicked()"></canvas>
+  </div>
 </div>

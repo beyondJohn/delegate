@@ -33,7 +33,7 @@ export class DelegateComponent implements OnInit {
   mout(ev){
     document.getElementById(ev).style.fill = 'lime';
   }
-  canvasarray = [{id: "canvas0", width: "300", height: "300", style:""}];
+  canvasarray = [{id: "canvas0", width: "300", height: "300", style:""},{id: "canvas0", width: "300", height: "300", style:""}];
   canvasadder = 0;
   createCanvas(){
     this.canvasarray.forEach(element => {
@@ -58,6 +58,20 @@ export class DelegateComponent implements OnInit {
     
 
      //this.canvasadder++;
+  }
+  clicked(){
+    console.log('clicked');
+  }
+  bodyclick(ev, id){
+    
+    let topclick, leftclick, parentwidth, parentheight, toppercent, leftpercent, scaledwidth, found, top, left;
+    topclick = ev.layerY;
+    leftclick = ev.layerX;
+    console.log(topclick, ' : ', leftclick);
+    parentwidth = document.getElementById(id).parentElement.clientWidth;
+    parentheight = document.getElementById(id).parentElement.clientHeight;
+    leftpercent = parseFloat(((parseInt(leftclick) * 100) / parseInt(parentwidth)).toString()).toFixed(0);
+    toppercent = parseFloat(((parseInt(topclick) * 100) / parseInt(parentheight)).toString()).toFixed(0);
   }
 // If final connection comes from above then adding all points to (left) of border
 // If final connection comes from below than add all points to right of border
