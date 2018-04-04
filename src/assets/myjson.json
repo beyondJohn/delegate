@@ -1,6 +1,6 @@
 {
     "imageurl": "https://d3800bkra8s324.cloudfront.net/paxe18/PAXEast2018_Map.jpg",
-    "fn": ["() => { alert('hi there');}"],
+    "fn": ["(message) => { alert('hi there: ' + message); return 7}"],
     "coords":
         [
             {
