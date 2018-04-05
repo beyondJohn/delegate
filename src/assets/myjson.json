@@ -1,10 +1,9 @@
 {
     "imageurl": "https://s3.amazonaws.com/pse-assets/paxe18/PAXEast2018_Map_169.jpg",
     "fn": ["(message) => { alert('hi there: ' + message); return 7}"],
-    "svg": [{"divpos":{"position":"absolute","top":"100px","left":"150px"}, "divid":"svg1","pathid": "path1", 
-        "d":"M121 127, H 34, V 92,  H 59,  V 74,  H 35,  V 46, H 124, Z", "style": {"fill":"lime", "fill-opacity": "0", "cursor":"pointer"}},
-        {"divpos":{"position":"absolute","top":"400px","left":"350px"}, "divid":"svg2","pathid": "path2", 
-        "d":"M121 127, H 34, V 92,  H 59,  V 74,  H 35,  V 46, H 124, Z", "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}}],
+    "svg": [{"pathid": "path2", "d":"M 68 54,H 66 99,V 79 99,H 79 62,V 92 62,H 93 54,Z 68 54", "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}},
+        {"pathid": "path3", "d":"M 79 31,H 79 47,V 92 47,H 92 31, Z 79 31", "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}}
+    ],
     "coords":
         [
             {

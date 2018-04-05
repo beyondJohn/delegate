@@ -9,7 +9,6 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./delegate.component.css']
 })
 export class DelegateComponent implements OnInit {
-
   constructor(
     private _http: Http
   ) { }
@@ -25,10 +24,15 @@ export class DelegateComponent implements OnInit {
   }
   processJson(jsondata) {
     this.imageurl = jsondata['imageurl'];
+    let addertemp = 0;
     if (jsondata['svg'].length > 0) {
       jsondata['svg'].forEach(svgobj => {
         let percentagesToPlot = svgobj['d'].split(",");
-        this.svgs.push(svgobj);
+        this.convertPercentsToPixels(percentagesToPlot, (d: string) => {
+          svgobj['d'] = d
+          this.svgs.push(svgobj);
+        });
+        addertemp++;
       });
     }
     if (jsondata['fn'] !== undefined) {
@@ -36,6 +40,51 @@ export class DelegateComponent implements OnInit {
       this.executejsonfn(myeval);
       let checkadder = this.adder;
     }
+  }
+  convertPercentsToPixels(svgPathAsPercentagesArray, callback) {
+    let svgPathString = "";
+    const myarray = svgPathAsPercentagesArray;
+    let arrayadder = 0;
+    const parentwidth = document.getElementById("divimg").clientWidth;
+    const parentheight = document.getElementById("divimg").clientHeight;
+    setTimeout(() => {
+      if (parentheight < 50 || parentwidth < 50) {
+        this.convertPercentsToPixels(myarray, callback);
+      }
+      else {
+        myarray.forEach(element => {
+          let myparentheight = parentheight;
+          let myparentwidth = parentwidth;
+          let directionarray = element.split(" ");
+          let y = parseInt(directionarray[1]);
+          let x = parseInt(directionarray[2]);
+          let xmultiplier = parseFloat((x * .01).toString());
+          let ymultiplier = parseFloat((y * .01).toString());
+          let ypos = myparentheight * ymultiplier;
+          let xpos = myparentwidth * xmultiplier;
+          if (arrayadder === 0) {
+            //convert M coordinates from percents to top,left
+            svgPathString += "M" + Math.round(xpos) + " " + Math.round(ypos);
+            let checkhere = " ";
+          }
+          else {
+            //convert H, V, from percents to top,left 
+            //if H take xpos if V take ypos
+            if (directionarray[0] === "H") {
+              svgPathString += ",H" + Math.round(xpos);
+            }
+            else if (directionarray[0] === "V") {
+              svgPathString += ",V" + Math.round(ypos);
+            }
+            else if (directionarray[0] === "Z") {
+              svgPathString += ",Z";
+            }
+          }
+          arrayadder++;
+        });
+        callback(svgPathString);
+      }
+    }, 1)
   }
   executejsonfn(fn) {
     this.adder = fn(this.adder);
@@ -46,7 +95,6 @@ export class DelegateComponent implements OnInit {
   complete() {
     console.log("fin");
   }
-
   // Page Events
   mover(ev) {
     //document.getElementById(ev).style.fill = 'blue';
@@ -60,17 +108,18 @@ export class DelegateComponent implements OnInit {
   svgclick(id) {
     console.log("clicked svg with id: ", id);
   }
-  // (click)="bodyclick($event,'divbody')"
-  bodyclick(ev, id) {
-
+  // the following is used in browser to collect top & left percent points.
+  // use in chrome and set "divSvgContainer" display to 'none', after which clicking on map will report click locations.
+  // mimic myjson.json path 'd' attribute marking H or V values on each click 
+  areaclick(ev, id) {
     let topclick, leftclick, parentwidth, parentheight, toppercent, leftpercent, scaledwidth, found, top, left;
     topclick = ev.layerY;
     leftclick = ev.layerX;
-    console.log(topclick, ' : ', leftclick);
-    parentwidth = document.getElementById(id).parentElement.clientWidth;
-    parentheight = document.getElementById(id).parentElement.clientHeight;
+    parentwidth = document.getElementById(id).clientWidth;
+    parentheight = document.getElementById(id).clientHeight;
     leftpercent = parseFloat(((parseInt(leftclick) * 100) / parseInt(parentwidth)).toString()).toFixed(0);
     toppercent = parseFloat(((parseInt(topclick) * 100) / parseInt(parentheight)).toString()).toFixed(0);
+    console.log(toppercent, " : ", leftpercent);
   }
 
   //create canvas (not used intended for production, decided to use svg for production)
@@ -117,4 +166,5 @@ export class DelegateComponent implements OnInit {
 // {"divpos":{"position":"absolute","top":"400px","left":"350px"}, "divid":"svg2","pathid": "path2", 
 // "d":"M121 127, H 34, V 92,  H 59,  V 74,  H 35,  V 46, H 124, Z", "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}}
      // percentages = "M69 54, H 99, V 80, H 62, v 92, H54, Z"
+     // percentages unfiltered = "M69 54,H 66 99,V 80 99,H 80 62,V 92 62,H 93 54, Z 69 54"
      // pix locations = "M121 127, H 34, V 92,  H 59,  V 74,  H 35,  V 46, H 124, Z"
