@@ -1,6 +1,8 @@
 {
     "imageurl": "https://d3800bkra8s324.cloudfront.net/paxe18/PAXEast2018_Map.jpg",
     "fn": ["(message) => { alert('hi there: ' + message); return 7}"],
+    "svg": [{"divpos":{"position":"absolute","top":"100px","left":"150px"}, "left": "100px", "divid":"svg1","pathid": "path1", 
+        "d":"M121 127, H 34, V 92,  H 59,  V 74,  H 35,  V 46, H 124, Z", "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}}],
     "coords":
         [
             {

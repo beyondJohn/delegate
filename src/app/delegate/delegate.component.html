@@ -1,12 +1,7 @@
-<div id='divbody' (click)="bodyclick($event,'divbody')">
+<div *ngFor="let svg of svgs" id={{svg.divid}} [ngStyle]=svg.divpos>
   <svg height="210" width="390">
-      <path id='poly1' d="M121 127, H 34, V 92,  H 59,  V 74,  H 35,  V 46, H 124, Z" 
-      (mouseenter)="mover('poly1')" (mouseleave)="mout('poly1')" style="fill:lime;stroke:purple;stroke-width:1;" />
+      <path id={{svg.pathid}} [attr.d]=svg.d  
+      (mouseenter)="mover(svg.pathid)" (mouseleave)="mout(svg.pathid)" [ngStyle]=svg.style />
   </svg>
-
-  <div *ngFor="let canv of canvasarray">
-
-    <canvas id="{{canv.id}}" width="{{canv.width}}" height="{{canv.height}}" (click)="clicked()"></canvas>
-  </div>
 </div>
 
