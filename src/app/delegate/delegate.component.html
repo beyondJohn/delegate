@@ -1,7 +1,6 @@
 <div *ngFor="let svg of svgs" id={{svg.divid}} [ngStyle]=svg.divpos>
   <svg height="210" width="390">
-      <path id={{svg.pathid}} [attr.d]=svg.d  
-      (mouseenter)="mover(svg.pathid)" (mouseleave)="mout(svg.pathid)" [ngStyle]=svg.style />
+      <path id={{svg.pathid}} [attr.d]=svg.d (mouseenter)="mover(svg.pathid)" (mouseleave)="mout(svg.pathid)" [ngStyle]=svg.style />
   </svg>
 </div>
 
