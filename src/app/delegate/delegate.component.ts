@@ -16,15 +16,18 @@ export class DelegateComponent implements OnInit {
   adder = 0;
   myjson;
   svgs = [];
+  imageurl;
   ngOnInit() {
-    this.getJson().subscribe(json => {this.myjson = json; this.processJson(json)}, er => this.error(er), () => this.complete());
+    this.getJson().subscribe(json => { this.myjson = json; this.processJson(json) }, er => this.error(er), () => this.complete());
   }
   getJson() {
     return this._http.get("../../assets/myjson.json").map(response => response.json()); //map response.json() converts response to JSON object
   }
   processJson(jsondata) {
-    if(jsondata['svg'].length > 0){
+    this.imageurl = jsondata['imageurl'];
+    if (jsondata['svg'].length > 0) {
       jsondata['svg'].forEach(svgobj => {
+        let percentagesToPlot = svgobj['d'].split(",");
         this.svgs.push(svgobj);
       });
     }
@@ -46,12 +49,16 @@ export class DelegateComponent implements OnInit {
 
   // Page Events
   mover(ev) {
-    document.getElementById(ev).style.fill = 'blue';
-    document.getElementById(ev).style.cursor = 'pointer';
-    console.log(ev);
+    //document.getElementById(ev).style.fill = 'blue';
+    document.getElementById(ev).style.fillOpacity = '0.2';
+    //document.getElementById(ev).style.cursor = 'pointer';
   }
   mout(ev) {
-    document.getElementById(ev).style.fill = 'lime';
+    document.getElementById(ev).style.fillOpacity = '0';
+    //document.getElementById(ev).style.fill = 'none';
+  }
+  svgclick(id) {
+    console.log("clicked svg with id: ", id);
   }
   // (click)="bodyclick($event,'divbody')"
   bodyclick(ev, id) {
@@ -96,3 +103,18 @@ export class DelegateComponent implements OnInit {
   //   console.log('clicked , canvasadder: ', this.canvasadder);
   // }
 }
+
+
+// 69  :  54
+
+// 69  :  99
+// 80  :  99
+// 80  :  62
+// 92  :  62
+// 93  :  54
+// 69  :  54
+
+// {"divpos":{"position":"absolute","top":"400px","left":"350px"}, "divid":"svg2","pathid": "path2", 
+// "d":"M121 127, H 34, V 92,  H 59,  V 74,  H 35,  V 46, H 124, Z", "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}}
+     // percentages = "M69 54, H 99, V 80, H 62, v 92, H54, Z"
+     // pix locations = "M121 127, H 34, V 92,  H 59,  V 74,  H 35,  V 46, H 124, Z"

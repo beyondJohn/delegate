@@ -1,6 +1,11 @@
-<div *ngFor="let svg of svgs" id={{svg.divid}} [ngStyle]=svg.divpos>
-  <svg height="210" width="390">
-      <path id={{svg.pathid}} [attr.d]=svg.d (mouseenter)="mover(svg.pathid)" (mouseleave)="mout(svg.pathid)" [ngStyle]=svg.style />
-  </svg>
+<div id="container" style="position:relative; width:100%;">
+  <div id="divimg" style="position:absolute; top:0px; left:0px; max-width:720px;">
+    <img [src]='imageurl' class="img-responsive" style="width:100%;" >
+  </div>
+  <div *ngFor="let svg of svgs" id={{svg.divid}} [ngStyle]=svg.divpos>
+    <svg height="210" width="390">
+      <path id={{svg.pathid}} [attr.d]=svg.d (mouseenter)="mover(svg.pathid)" (mouseleave)="mout(svg.pathid)" (click)=svgclick(svg.pathid)
+        [ngStyle]=svg.style />
+    </svg>
+  </div>
 </div>
-
