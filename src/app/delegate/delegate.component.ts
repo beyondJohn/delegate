@@ -15,6 +15,8 @@ export class DelegateComponent implements OnInit {
   adder = 0;
   myjson;
   svgs = [];
+  polys = [];
+  circs = [];
   imageurl;
   ngOnInit() {
     this.getJson().subscribe(json => { this.myjson = json; this.processJson(json) }, er => this.error(er), () => this.complete());
@@ -24,15 +26,29 @@ export class DelegateComponent implements OnInit {
   }
   processJson(jsondata) {
     this.imageurl = jsondata['imageurl'];
-    let addertemp = 0;
     if (jsondata['svg'].length > 0) {
       jsondata['svg'].forEach(svgobj => {
-        let percentagesToPlot = svgobj['d'].split(",");
-        this.convertPercentsToPixels(percentagesToPlot, (d: string) => {
-          svgobj['d'] = d
-          this.svgs.push(svgobj);
-        });
-        addertemp++;
+        if (svgobj['type'] === "path") {
+          let percentagesToPlot = svgobj['d'].split(",");
+          this.convertPathPercentsToPixels(percentagesToPlot, (d: string) => {
+            svgobj['d'] = d
+            this.svgs.push(svgobj);
+          });
+        }
+        else if (svgobj['type'] === 'poly') {
+          let percentagesToPlot = svgobj['points'].split(" ");
+          this.convertPolyPercentsToPixels(percentagesToPlot, (points: string) => {
+            svgobj['points'] = points
+            this.polys.push(svgobj);
+          });
+        }
+        else if (svgobj['type'] === 'circ') {
+          let percentagesToPlot = svgobj['points'];
+          this.convertCircPercentsToPixels(percentagesToPlot, (points: Array<number>) => {
+            svgobj['points'] = points
+            this.circs.push(svgobj);
+          });
+        }
       });
     }
     if (jsondata['fn'] !== undefined) {
@@ -41,7 +57,7 @@ export class DelegateComponent implements OnInit {
       let checkadder = this.adder;
     }
   }
-  convertPercentsToPixels(svgPathAsPercentagesArray, callback) {
+  convertPathPercentsToPixels(svgPathAsPercentagesArray, callback) {
     let svgPathString = "";
     const myarray = svgPathAsPercentagesArray;
     let arrayadder = 0;
@@ -49,7 +65,7 @@ export class DelegateComponent implements OnInit {
     const parentheight = document.getElementById("divimg").clientHeight;
     setTimeout(() => {
       if (parentheight < 50 || parentwidth < 50) {
-        this.convertPercentsToPixels(myarray, callback);
+        this.convertPathPercentsToPixels(myarray, callback);
       }
       else {
         myarray.forEach(element => {
@@ -65,7 +81,6 @@ export class DelegateComponent implements OnInit {
           if (arrayadder === 0) {
             //convert M coordinates from percents to top,left
             svgPathString += "M" + Math.round(xpos) + " " + Math.round(ypos);
-            let checkhere = " ";
           }
           else {
             //convert H, V, from percents to top,left 
@@ -84,7 +99,61 @@ export class DelegateComponent implements OnInit {
         });
         callback(svgPathString);
       }
-    }, 1)
+    }, 1);
+  }
+  convertPolyPercentsToPixels(svgPolyAsPercentagesArray, callback) {
+    let polyString = "";
+    const myarray = svgPolyAsPercentagesArray;
+    const parentwidth = document.getElementById("divimg").clientWidth;
+    const parentheight = document.getElementById("divimg").clientHeight;
+    setTimeout(() => {
+      if (parentheight < 50 || parentwidth < 50) {
+        this.convertPolyPercentsToPixels(myarray, callback);
+      }
+      else {
+        myarray.forEach(element => {
+          let myparentheight = parentheight;
+          let myparentwidth = parentwidth;
+          let pointsarray = element.split(",");
+          let y = parseInt(pointsarray[0]);
+          let x = parseInt(pointsarray[1]);
+          let xmultiplier = parseFloat((x * .01).toString());
+          let ymultiplier = parseFloat((y * .01).toString());
+          let ypos = myparentheight * ymultiplier;
+          let xpos = myparentwidth * xmultiplier;
+          //convert  coordinates from percents to top,left
+          polyString += Math.round(xpos) + "," + Math.round(ypos) + " ";
+          let checkhere = " ";
+        });
+        callback(polyString);
+      }
+    }, 1);
+  }
+  convertCircPercentsToPixels(svgCircAsPercentagesArray, callback) {
+    let circarray = [];
+    const myarray = svgCircAsPercentagesArray;
+    const parentwidth = document.getElementById("divimg").clientWidth;
+    const parentheight = document.getElementById("divimg").clientHeight;
+    setTimeout(() => {
+      if (parentheight < 50 || parentwidth < 50) {
+        this.convertCircPercentsToPixels(myarray, callback);
+      }
+      else {
+        let myparentheight = parentheight;
+        let myparentwidth = parentwidth;
+        let y = parseInt(myarray[0]);
+        let x = parseInt(myarray[1]);
+        let xmultiplier = parseFloat((x * .01).toString());
+        let ymultiplier = parseFloat((y * .01).toString());
+        let ypos = myparentheight * ymultiplier;
+        let xpos = myparentwidth * xmultiplier;
+        circarray[0] = Math.round(xpos);
+        circarray[1] = Math.round(ypos);
+        circarray[2] = myarray[2];
+        let checkhere = " ";
+        callback(circarray);
+      }
+    }, 1);
   }
   executejsonfn(fn) {
     this.adder = fn(this.adder);

@@ -1,11 +1,16 @@
 <div id="container" style="position:relative;">
   <div id="divimg" style="position:relative; top:0px; left:0px; " (click)="areaclick($event,'divimg')">
-    <img [src]='imageurl' class="img-responsive" style="width:100%;" >
+    <img [src]='imageurl' class="img-responsive" style="width:100%;">
   </div>
   <div id="divSvgContainer" style="position:absolute; top:0px; left:0px; width:100%; height:100%;">
     <svg style="position:absolute; width:100%; height:100%;">
-      <path *ngFor="let svg of svgs"  id={{svg.pathid}} [attr.d]=svg.d (mouseenter)="mover(svg.pathid)" (mouseleave)="mout(svg.pathid)" (click)=svgclick(svg.pathid)
+      <path *ngFor="let svg of svgs" id={{svg.id}} [attr.d]=svg.d (mouseenter)="mover(svg.id)" (mouseleave)="mout(svg.id)" (click)=svgclick(svg.id)
         [ngStyle]=svg.style />
+      <polygon *ngFor="let poly of polys" id={{poly.id}} [attr.points]=poly.points (mouseenter)="mover(poly.id)" (mouseleave)="mout(poly.id)"
+        (click)=svgclick(poly.id) [ngStyle]=poly.style />
+        <circle *ngFor="let circ of circs" id={{circ.id}} [attr.cx]=circ.points[0] [attr.cy]=circ.points[1] [attr.r]=circ.points[2] (mouseenter)="mover(circ.id)" (mouseleave)="mout(circ.id)"
+        (click)=svgclick(circ.id) [ngStyle]=circ.style />
     </svg>
+
   </div>
 </div>
