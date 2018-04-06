@@ -5,7 +5,7 @@
         {"type":"path","id": "location2", "d":"M 79 31,H 79 47,V 92 47,H 92 31, Z 79 31", "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}},
         {"type":"poly","id": "location3", "points":"40,16 32,19 31,13 28,18 21,19 28,21 29,26 31,22 38,23 33,20 40,16", "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}},
         {"type":"poly","id": "location4", "points":"36,74 36,66 27,66 26,87 32,87 32,74 36,74", "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}},
-        {"type":"circ","id": "location5", "points":[50,50,50], "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}}
+        {"type":"circ","id": "location5", "points":[50,50,3.2], "style": {"fill":"lime","stroke":"purple","stroke-width":"1"}}
 
     ],
     "coords":
