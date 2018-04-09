@@ -145,11 +145,14 @@ export class DelegateComponent implements OnInit {
         let x = parseInt(myarray[1]);
         let xmultiplier = parseFloat((x * .01).toString());
         let ymultiplier = parseFloat((y * .01).toString());
+        let radiusmultiplier = parseFloat((myarray[2] * .01).toString());
         let ypos = myparentheight * ymultiplier;
         let xpos = myparentwidth * xmultiplier;
+        // radius is calculated as a percentage of the width which is set as a % in the JSON record
+        let radius = myparentwidth * radiusmultiplier;
         circarray[0] = Math.round(xpos);
         circarray[1] = Math.round(ypos);
-        circarray[2] = myarray[2];
+        circarray[2] = radius;
         let checkhere = " ";
         callback(circarray);
       }
